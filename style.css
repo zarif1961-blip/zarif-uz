@@ -1,0 +1,355 @@
+/* ============================================================
+   ZARIF 2025 — ОБЩИЕ СТИЛИ ДЛЯ ВСЕГО САЙТА
+   ============================================================ */
+
+/* ---------- RESET & БАЗОВЫЕ НАСТРОЙКИ ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', 'Arial', sans-serif;
+  background: #060504;
+  color: #e8e0d0;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- ПАНЕЛЬ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (tbar) ---------- */
+.tbar {
+  background: rgba(6, 5, 4, 0.98);
+  border-bottom: 1px solid rgba(197, 160, 77, 0.22);
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.tbar-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c5a04d;
+  white-space: nowrap;
+}
+
+.lang-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  background: rgba(197, 160, 77, 0.06);
+  border: 1px solid rgba(197, 160, 77, 0.2);
+  color: #706858;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.18s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.lang-btn:hover {
+  background: rgba(197, 160, 77, 0.14);
+  border-color: rgba(197, 160, 77, 0.5);
+  color: #e8e0d0;
+}
+
+.lang-btn.active {
+  background: rgba(197, 160, 77, 0.18);
+  border-color: #c5a04d;
+  color: #c5a04d;
+  font-weight: 500;
+}
+
+.tbar-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: rgba(197, 160, 77, 0.5);
+  margin-left: auto;
+}
+
+/* ---------- ШАПКА (HEADER) ---------- */
+.zarif-header {
+  background: rgba(6, 5, 4, 1);
+  border-bottom: 1px solid rgba(197, 160, 77, 0.3);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.zarif-header-logo {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #c5a04d;
+  display: block;
+}
+
+.zarif-header-tagline {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(112, 104, 88, 0.7);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ---------- НАВИГАЦИЯ ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(6, 5, 4, 0.85);
+  border-bottom: 1px solid rgba(197, 160, 77, 0.15);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c5a04d;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #706858;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #c5a04d;
+}
+
+.nav-links a.active {
+  color: #c5a04d;
+}
+
+/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */
+main {
+  min-height: 60vh;
+  padding: 20px 0;
+}
+
+/* ---------- ПОДВАЛ (FOOTER) ---------- */
+.zarif-footer {
+  background: rgba(6, 5, 4, 1);
+  border-top: 1px solid rgba(197, 160, 77, 0.2);
+  padding: 28px 40px;
+  text-align: center;
+}
+
+.zarif-footer-name {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c5a04d;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.zarif-footer-links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.zarif-footer-links a {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(112, 104, 88, 0.7);
+  transition: color 0.2s;
+}
+
+.zarif-footer-links a:hover {
+  color: #c5a04d;
+}
+
+.zarif-footer-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.zarif-footer-social a {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.zarif-footer-social a:hover {
+  opacity: 0.7;
+}
+
+.zarif-footer-social img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.zarif-footer-copy {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 8px;
+  color: rgba(112, 104, 88, 0.4);
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+  display: block;
+}
+
+/* ---------- ОБЩИЕ КОМПОНЕНТЫ ДЛЯ СТРАНИЦ ---------- */
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #c5a04d;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(197, 160, 77, 0.2);
+}
+
+.section-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 66px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.section-h em {
+  font-style: italic;
+  color: #c5a04d;
+}
+
+.lead-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(232, 224, 208, 0.7);
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+/* ---------- АДАПТИВНОСТЬ (Mobile) ---------- */
+@media (max-width: 960px) {
+  .nav {
+    padding: 12px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    gap: 16px;
+  }
+  .section-inner {
+    padding: 0 24px;
+  }
+  .zarif-header {
+    padding: 12px 20px;
+  }
+  .zarif-footer {
+    padding: 20px 24px;
+  }
+  .tbar {
+    padding: 6px 16px;
+    gap: 6px;
+  }
+  .lang-btn {
+    font-size: 8px;
+    padding: 3px 7px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 7px;
+    letter-spacing: 0.15em;
+  }
+  .zarif-footer-links {
+    gap: 14px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .zarif-footer-social {
+    gap: 10px;
+  }
+}
+
+/* ---------- ПОДДЕРЖКА ШРИФТОВ ДЛЯ CJK И АРАБСКОГО ---------- */
+body.lang-ko,
+body.lang-ko * {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif !important;
+}
+body.lang-ja,
+body.lang-ja * {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif !important;
+}
+body.lang-zh,
+body.lang-zh * {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif !important;
+}
+body.lang-ar,
+body.lang-ar * {
+  font-family: 'Noto Sans Arabic', 'Arial', sans-serif !important;
+}
