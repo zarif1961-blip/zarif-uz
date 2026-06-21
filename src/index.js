@@ -1,8 +1,10 @@
 // src/index.js
 // Главный обработчик для Workers with Assets
+
 import aboutContent from './about.js';
 import technologyContent from './zarif-technology.js';
 import patentsContent from './patents.js';
+import contactContent from './contact.js';
 
 // ============================================================
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
@@ -194,6 +196,13 @@ export default {
     // === СТРАНИЦА /patents ===
     if (path === '/patents') {
       return new Response(renderPage(patentsContent, '/patents'), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
+
+    // === СТРАНИЦА /contact ===
+    if (path === '/contact') {
+      return new Response(renderPage(contactContent, '/contact'), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
