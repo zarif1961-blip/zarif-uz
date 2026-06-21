@@ -1,5 +1,5 @@
 // public/translator.js
-// Переводчик на 10 языков для ZARIF 2025
+// Переводчик на 10 языков с гарантированной загрузкой шрифтов
 
 (function() {
   var currentLang = 'en';
@@ -51,18 +51,32 @@
       var v = originalTexts.get(node._tIdx);
       if (v !== undefined) node.nodeValue = v;
     });
+    document.querySelectorAll('*').forEach(function(el) {
+      el.style.fontFamily = '';
+    });
   }
 
-  window.setLang = async function(lang, tl) {
-    if (lang === currentLang) return;
-    ['en','ru','uz','zh','ar','de','fr','ja','ko','tr'].forEach(function(l) {
-      var b = document.getElementById('btn-'+l);
-      if (b) b.classList.toggle('active', l===lang);
-    });
+  // ПРИНУДИТЕЛЬНОЕ ПРИМЕНЕНИЕ ШРИФТА
+  function applyFontForLanguage(lang) {
+    var fontFamily = '';
+    if (lang === 'ko') {
+      fontFamily = "'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif";
+    } else if (lang === 'ja') {
+      fontFamily = "'Noto Sans JP', 'Hiragino Sans', sans-serif";
+    } else if (lang === 'zh') {
+      fontFamily = "'Noto Sans SC', 'Microsoft YaHei', sans-serif";
+    } else if (lang === 'ar') {
+      fontFamily = "'Noto Sans Arabic', 'Arial', sans-serif";
+    }
+    if (fontFamily) {
+      document.querySelectorAll('*:not(.tbar *)').forEach(function(el) {
+        el.style.fontFamily = fontFamily;
+      });
+    }
+  }
 
-    document.body.className = document.body.className.replace(/\blang-\S+/g, '').trim();
-    if (lang !== 'en') document.body.classList.add('lang-' + lang);
-
+  // ГАРАНТИРОВАННАЯ ЗАГРУЗКА ШРИФТА
+  function loadFontForLanguage(lang) {
     var fontMap = {
       'ko': 'Noto+Sans+KR:wght@300;400;500',
       'ja': 'Noto+Sans+JP:wght@300;400;500',
@@ -75,13 +89,32 @@
       link.rel = 'stylesheet';
       link.href = 'https://fonts.googleapis.com/css2?family=' + fontMap[lang] + '&display=swap';
       document.head.appendChild(link);
+      console.log('Loading font for:', lang);
     }
+  }
+
+  window.setLang = async function(lang, tl) {
+    if (lang === currentLang) return;
+
+    // Обновляем кнопки
+    ['en','ru','uz','zh','ar','de','fr','ja','ko','tr'].forEach(function(l) {
+      var b = document.getElementById('btn-'+l);
+      if (b) b.classList.toggle('active', l===lang);
+    });
+
+    document.body.className = document.body.className.replace(/\blang-\S+/g, '').trim();
+    if (lang !== 'en') document.body.classList.add('lang-' + lang);
 
     var st = document.getElementById('tbar-status');
 
+    // Загружаем шрифт ДО перевода
+    loadFontForLanguage(lang);
+
     if (lang === 'en') {
-      restoreOriginal(); currentLang = 'en';
-      if (st) st.textContent = ''; return;
+      restoreOriginal();
+      currentLang = 'en';
+      if (st) st.textContent = '';
+      return;
     }
 
     if (translatedCache[lang]) {
@@ -89,7 +122,10 @@
       var nodes = getTextNodes(document.body);
       var c = translatedCache[lang];
       nodes.forEach(function(n){ var t=c[n._tIdx]; if(t) n.nodeValue=t; });
-      currentLang = lang; if (st) st.textContent = ''; return;
+      currentLang = lang;
+      if (st) st.textContent = '';
+      applyFontForLanguage(lang);
+      return;
     }
 
     if (st) st.textContent = 'Translating…';
@@ -112,6 +148,7 @@
       resetFontSizes();
       currentLang = lang;
       if (st) st.textContent = '';
+      applyFontForLanguage(lang);
     } catch(e) {
       if (st) st.textContent = 'Error — check connection';
       ['en','ru','uz','zh','ar','de','fr','ja','ko','tr'].forEach(function(l){
