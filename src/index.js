@@ -2,7 +2,7 @@
 // Главный обработчик для Workers with Assets
 
 import aboutContent from './about.js';
-import zarifTechnologyContent from './zarif-technology.js';
+import technologyContent from './zarif-technology.js';
 
 // ============================================================
 // ОБЩАЯ ШАПКА (Header) — для всех страниц
@@ -78,53 +78,51 @@ const footerHtml = `
        ПОДВАЛ САЙТА
   ============================================================ -->
   <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="/images/Company logo.png" alt="ZARIF Logo" class="footer-logo-img">
-        <span class="footer-company">ZARIF SEWING MACHINE CO., LTD.</span>
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <img src="/images/Company logo.png" alt="ZARIF Logo" class="footer-logo-img">
+          <span class="footer-company">ZARIF SEWING MACHINE CO., LTD.</span>
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/about">About Us</a>
+          <a href="/books">ZARIF Books 2026</a>
+          <a href="/patents">Patents</a>
+          <a href="/contact">Contact</a>
+        </div>
       </div>
-      <p class="footer-tagline">
-        ZARIF 2025 is the world's first ideal sewing technology utilizing a rotary looper, enabling the creation of fully autonomous, lights-out garment factories for the production of a wide range of sewn products.
-      </p>
+      <div class="footer-right">
+        <p class="footer-tagline">
+          ZARIF 2025 is the world's first ideal sewing technology utilizing a rotary looper, enabling the creation of fully autonomous, lights-out garment factories for the production of a wide range of sewn products.
+        </p>
+      </div>
     </div>
-
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/about">About Us</a>
-      <a href="/books">ZARIF Books 2026</a>
-      <a href="/patents">Patents</a>
-      <a href="/contact">Contact</a>
-    </div>
-
-    <div class="footer-social">
-      <a href="https://youtube.com/@ZarifTadjibaev" target="_blank" rel="noopener">
-        <img src="/images/youtube_EN.png" alt="YouTube EN" width="28" height="28">
-      </a>
-      <a href="https://youtube.com/@ZarifTadjibaev1961" target="_blank" rel="noopener">
-        <img src="/images/youtube_RU.png" alt="YouTube RU" width="28" height="28">
-      </a>
-      <a href="https://www.linkedin.com/in/zarif-sewing/" target="_blank" rel="noopener">
-        <img src="/images/linkedin.png" alt="LinkedIn" width="28" height="28">
-      </a>
-      <a href="https://www.facebook.com/zarif.sewing/" target="_blank" rel="noopener">
-        <img src="/images/facebook.png" alt="Facebook" width="28" height="28">
-      </a>
-      <a href="https://www.instagram.com/zarif1961/" target="_blank" rel="noopener">
-        <img src="/images/instagram.png" alt="Instagram" width="28" height="28">
-      </a>
-      <a href="https://x.com/zarif1961" target="_blank" rel="noopener">
-        <img src="/images/X.png" alt="X" width="28" height="28">
-      </a>
-    </div>
-
     <div class="footer-bottom">
-      <span>© 2025 ZARIF Sewing Machine Co., Ltd. · Tashkent, Uzbekistan · US Patent No. 6,095,069</span>
+      <span class="footer-copy">© 2026 ZARIF Sewing Machine Co., Ltd. · Tashkent, Uzbekistan · US Patent No. 6,095,069</span>
+      <div class="footer-social">
+        <a href="https://youtube.com/@ZarifTadjibaev" target="_blank" rel="noopener">
+          <img src="/images/youtube_EN.png" alt="YouTube EN" width="28" height="28">
+        </a>
+        <a href="https://youtube.com/@ZarifTadjibaev1961" target="_blank" rel="noopener">
+          <img src="/images/youtube_RU.png" alt="YouTube RU" width="28" height="28">
+        </a>
+        <a href="https://www.linkedin.com/in/zarif-sewing/" target="_blank" rel="noopener">
+          <img src="/images/linkedin.png" alt="LinkedIn" width="28" height="28">
+        </a>
+        <a href="https://www.facebook.com/zarif.sewing/" target="_blank" rel="noopener">
+          <img src="/images/facebook.png" alt="Facebook" width="28" height="28">
+        </a>
+        <a href="https://www.instagram.com/zarif1961/" target="_blank" rel="noopener">
+          <img src="/images/instagram.png" alt="Instagram" width="28" height="28">
+        </a>
+        <a href="https://x.com/zarif1961" target="_blank" rel="noopener">
+          <img src="/images/X.png" alt="X" width="28" height="28">
+        </a>
+      </div>
     </div>
   </footer>
 
-  <!-- ============================================================
-       ПЕРЕВОДЧИК (единый скрипт)
-  ============================================================ -->
   <script src="/translator.js"></script>
 </body>
 </html>
@@ -138,6 +136,14 @@ function renderPage(content) {
 }
 
 // ============================================================
+// ОБЪЕДИНЁННЫЙ КОНТЕНТ ДЛЯ СТРАНИЦЫ /about
+// Сначала about.js, затем zarif-technology.js
+// ============================================================
+function getCombinedAboutContent() {
+  return aboutContent + technologyContent;
+}
+
+// ============================================================
 // МАРШРУТИЗАЦИЯ
 // ============================================================
 export default {
@@ -145,29 +151,29 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // About Us
+    // === СТРАНИЦА /about — объединённый контент ===
     if (path === '/about') {
-      return new Response(renderPage(aboutContent), {
+      const combinedContent = getCombinedAboutContent();
+      return new Response(renderPage(combinedContent), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
 
-    // ZARIF 2025 Technology
-    if (path === '/zarif-technology') {
-      return new Response(renderPage(zarifTechnologyContent), {
-        headers: { 'Content-Type': 'text/html; charset=utf-8' }
-      });
-    }
-
-    // Главная страница
+    // === ГЛАВНАЯ СТРАНИЦА ===
     if (path === '/') {
       const indexContent = `
         <div class="home-hero">
           <h1 class="home-title">ZARIF 2025</h1>
-          <p class="home-subtitle">The World's First Robot-Native Sewing Technology</p>
+          <p class="home-subtitle">
+            Добро пожаловать на официальный сайт ZARIF Sewing Machine Co., Ltd. — 
+            мирового лидера в области инновационных швейных технологий. 
+            Наша миссия — полностью преобразить швейную промышленность с помощью 
+            революционной технологии ZARIF 2025, которая впервые в мире позволяет 
+            создавать полностью автоматизированные, «безлюдные» швейные фабрики.
+          </p>
           <div class="home-buttons">
             <a href="/about" class="btn-gold">About Us</a>
-            <a href="/zarif-technology" class="btn-outline-gold">Technology</a>
+            <a href="/books" class="btn-outline-gold">ZARIF Books 2026</a>
           </div>
         </div>
       `;
@@ -176,7 +182,8 @@ export default {
       });
     }
 
-    // 404 — если страница не найдена
+    // === ВРЕМЕННЫЙ ОТВЕТ ДЛЯ ДРУГИХ СТРАНИЦ ===
+    // Если страница не найдена — 404
     return new Response('Page not found', { status: 404 });
   }
 };
