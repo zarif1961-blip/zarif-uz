@@ -5,6 +5,7 @@ import aboutContent from './about.js';
 import technologyContent from './zarif-technology.js';
 import patentsContent from './patents.js';
 import contactContent from './contact.js';
+import book1Content from './book-1.js';
 
 // ============================================================
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
@@ -206,7 +207,14 @@ export default {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
-
+    
+   // === СТРАНИЦА /book-1 ===
+    if (path === '/book-1') {
+      return new Response(renderPage(book1Content, '/book-1'), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
+    
     // === ГЛАВНАЯ СТРАНИЦА ===
     if (path === '/') {
       const indexContent = `
