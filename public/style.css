@@ -137,7 +137,8 @@ img {
 }
 
 .nav-link:hover {
-  color: #c5a04d;
+ .nav-link.active {
+  color: #c5a04d !important;
 }
 
 /* ---------- БАННЕР ---------- */
