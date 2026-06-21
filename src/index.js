@@ -3,6 +3,7 @@
 
 import aboutContent from './about.js';
 import technologyContent from './zarif-technology.js';
+import patentsContent from './patents.js';   // ← добавлен импорт
 
 // ============================================================
 // ОБЩАЯ ШАПКА (Header) — для всех страниц
@@ -154,6 +155,13 @@ export default {
     if (path === '/about') {
       const combinedContent = getCombinedAboutContent();
       return new Response(renderPage(combinedContent), {
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
+
+    // === СТРАНИЦА /patents ===
+    if (path === '/patents') {
+      return new Response(renderPage(patentsContent), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
