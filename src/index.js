@@ -13,7 +13,7 @@ const headerHtml = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARIF SEWING MACHINE CO., LTD.</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=2">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -137,7 +137,6 @@ function renderPage(content) {
 
 // ============================================================
 // ОБЪЕДИНЁННЫЙ КОНТЕНТ ДЛЯ СТРАНИЦЫ /about
-// Сначала about.js, затем zarif-technology.js
 // ============================================================
 function getCombinedAboutContent() {
   return aboutContent + technologyContent;
@@ -151,7 +150,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // === СТРАНИЦА /about — объединённый контент ===
+    // === СТРАНИЦА /about ===
     if (path === '/about') {
       const combinedContent = getCombinedAboutContent();
       return new Response(renderPage(combinedContent), {
@@ -165,11 +164,11 @@ export default {
         <div class="home-hero">
           <h1 class="home-title">ZARIF 2025</h1>
           <p class="home-subtitle">
-            Добро пожаловать на официальный сайт ZARIF Sewing Machine Co., Ltd. — 
-            мирового лидера в области инновационных швейных технологий. 
-            Наша миссия — полностью преобразить швейную промышленность с помощью 
-            революционной технологии ZARIF 2025, которая впервые в мире позволяет 
-            создавать полностью автоматизированные, «безлюдные» швейные фабрики.
+            Welcome to the official website of ZARIF Sewing Machine Co., Ltd. — 
+            a global leader in innovative sewing technologies. 
+            Our mission is to completely transform the sewing industry with 
+            the revolutionary ZARIF 2025 technology, which for the first time in the world 
+            enables the creation of fully automated, "lights-out" garment factories.
           </p>
           <div class="home-buttons">
             <a href="/about" class="btn-gold">About Us</a>
@@ -182,8 +181,7 @@ export default {
       });
     }
 
-    // === ВРЕМЕННЫЙ ОТВЕТ ДЛЯ ДРУГИХ СТРАНИЦ ===
-    // Если страница не найдена — 404
+    // === 404 ===
     return new Response('Page not found', { status: 404 });
   }
 };
