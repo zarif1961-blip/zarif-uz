@@ -1,14 +1,48 @@
 // src/index.js
 // Главный обработчик для Workers with Assets
-
 import aboutContent from './about.js';
 import technologyContent from './zarif-technology.js';
-import patentsContent from './patents.js';   // ← добавлен импорт
+import patentsContent from './patents.js';
+
+// ============================================================
+// ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
+// ============================================================
+function getNavLinks(activePath) {
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/books', label: 'ZARIF Books 2026' },
+    { href: '/patents', label: 'Patents' },
+    { href: '/contact', label: 'Contact' }
+  ];
+  return links.map(function(link) {
+    var isActive = (activePath === link.href);
+    var activeClass = isActive ? ' class="nav-link active"' : ' class="nav-link"';
+    return '<a href="' + link.href + '"' + activeClass + '>' + link.label + '</a>';
+  }).join('');
+}
+
+function getFooterLinks(activePath) {
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/books', label: 'ZARIF Books 2026' },
+    { href: '/patents', label: 'Patents' },
+    { href: '/contact', label: 'Contact' }
+  ];
+  return links.map(function(link) {
+    var isActive = (activePath === link.href);
+    var activeClass = isActive ? ' style="color: #c5a04d;"' : '';
+    return '<a href="' + link.href + '"' + activeClass + '>' + link.label + '</a>';
+  }).join('');
+}
 
 // ============================================================
 // ОБЩАЯ ШАПКА (Header) — для всех страниц
 // ============================================================
-const headerHtml = `<!DOCTYPE html>
+function getHeaderHtml(activePath) {
+  var navLinks = getNavLinks(activePath);
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,11 +83,7 @@ const headerHtml = `<!DOCTYPE html>
        НАВИГАЦИЯ
   ============================================================ -->
   <nav class="nav">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/about" class="nav-link">About Us</a>
-    <a href="/books" class="nav-link">ZARIF Books 2026</a>
-    <a href="/patents" class="nav-link">Patents</a>
-    <a href="/contact" class="nav-link">Contact</a>
+    ${navLinks}
   </nav>
 
   <!-- ============================================================
@@ -67,12 +97,15 @@ const headerHtml = `<!DOCTYPE html>
        ОСНОВНОЙ КОНТЕНТ
   ============================================================ -->
   <main>
-`;
+  `;
+}
 
 // ============================================================
 // ОБЩИЙ ПОДВАЛ (Footer) — для всех страниц
 // ============================================================
-const footerHtml = `
+function getFooterHtml(activePath) {
+  var footerLinks = getFooterLinks(activePath);
+  return `
   </main>
 
   <!-- ============================================================
@@ -86,11 +119,7 @@ const footerHtml = `
           <span class="footer-company">ZARIF SEWING MACHINE CO., LTD.</span>
         </div>
         <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/books">ZARIF Books 2026</a>
-          <a href="/patents">Patents</a>
-          <a href="/contact">Contact</a>
+          ${footerLinks}
         </div>
       </div>
       <div class="footer-right">
@@ -127,12 +156,15 @@ const footerHtml = `
   <script src="/translator.js"></script>
 </body>
 </html>
-`;
+  `;
+}
 
 // ============================================================
 // ФУНКЦИЯ СБОРКИ СТРАНИЦЫ
 // ============================================================
-function renderPage(content) {
+function renderPage(content, activePath) {
+  var headerHtml = getHeaderHtml(activePath);
+  var footerHtml = getFooterHtml(activePath);
   return headerHtml + content + footerHtml;
 }
 
@@ -154,14 +186,14 @@ export default {
     // === СТРАНИЦА /about ===
     if (path === '/about') {
       const combinedContent = getCombinedAboutContent();
-      return new Response(renderPage(combinedContent), {
+      return new Response(renderPage(combinedContent, '/about'), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
 
     // === СТРАНИЦА /patents ===
     if (path === '/patents') {
-      return new Response(renderPage(patentsContent), {
+      return new Response(renderPage(patentsContent, '/patents'), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
@@ -184,7 +216,7 @@ export default {
           </div>
         </div>
       `;
-      return new Response(renderPage(indexContent), {
+      return new Response(renderPage(indexContent, '/'), {
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
