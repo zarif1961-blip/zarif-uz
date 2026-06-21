@@ -1,6 +1,6 @@
 /* ============================================================
    ОСНОВНЫЕ СТИЛИ — ЧЁРНЫЙ ФОН + ЗОЛОТЫЕ АКЦЕНТЫ
-   (включая все стили из about_us.html и patents.html)
+   (объединены все стили: Home, About Us, Technology, Patents)
    ============================================================ */
 
 * {
@@ -169,6 +169,79 @@ main {
   padding: 0;
   max-width: 100%;
   margin: 0;
+}
+
+/* ============================================================
+   СТИЛИ ДЛЯ HOME (ГЛАВНАЯ СТРАНИЦА)
+   ============================================================ */
+.home-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 300;
+  color: #c5a04d;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: 20px;
+  color: #a09888;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-gold {
+  display: inline-block;
+  background: #c5a04d;
+  color: #0a0a0a;
+  padding: 14px 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-gold:hover {
+  background: #dab05a;
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  display: inline-block;
+  border: 1px solid #c5a04d;
+  color: #c5a04d;
+  padding: 14px 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(197, 160, 77, 0.1);
+  color: #e8e0d0;
+  transform: translateY(-2px);
 }
 
 /* ============================================================
@@ -891,123 +964,473 @@ p strong { color: #e8e0d0; font-weight: 600; }
   padding: 6px 14px;
 }
 
-/* ---------- ПОДВАЛ ---------- */
-.footer {
-  background: #0f0f0f;
-  border-top: 1px solid rgba(197,160,77,0.15);
-  padding: 40px 40px 24px;
-}
+/* ============================================================
+   СТИЛИ ДЛЯ TECHNOLOGY (вторая часть About Us, из zarif-technology.html)
+   ============================================================ */
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 30px;
+/* Hero for Technology */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,146,42,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 80% at 10% 80%, rgba(200,146,42,0.04) 0%, transparent 60%),
+    linear-gradient(175deg, #0D0E11 0%, #14161C 50%, #0A0B0E 100%);
 }
-
-.footer-left {
-  flex: 1 1 300px;
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,146,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,146,42,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 80%);
 }
-
-.footer-right {
-  flex: 1 1 400px;
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: 2px;
+  color: #e8e0d0;
+  margin-bottom: 1.5rem;
 }
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+.hero-title .gold { color: #e8b84b; }
+.hero-title .outline {
+  -webkit-text-stroke: 1px rgba(232,184,75,0.4);
+  color: transparent;
 }
-
-.footer-logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.footer-company {
-  font-family: 'DM Mono', 'Courier New', monospace;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: #c5a04d;
-  font-weight: 700;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 28px;
-  margin-top: 8px;
-}
-
-.footer-links a {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #706858;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: #c5a04d;
-}
-
-.footer-tagline {
-  font-size: 14px;
-  color: #8a8278;
-  line-height: 1.7;
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 300;
   font-style: italic;
-  margin-bottom: 16px;
-  text-transform: none !important;
+  color: #b8b3a8;
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
 }
-
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.hero-patent {
+  display: inline-flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 20px auto 0;
-  padding-top: 16px;
-  border-top: 1px solid rgba(197,160,77,0.08);
-  gap: 16px;
+  gap: 12px;
+  background: rgba(200,146,42,0.08);
+  border: 1px solid rgba(200,146,42,0.18);
+  padding: 12px 22px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #c8922a;
 }
-
-.footer-copy {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px;
-  color: rgba(112,104,88,0.4);
-  letter-spacing: 0.1em;
-}
-
-.footer-social {
+.hero-patent::before { content: '◈'; font-size: 14px; }
+.hero-scroll {
+  position: absolute;
+  bottom: 3vh;
+  right: 6vw;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #7a756c;
+  writing-mode: vertical-rl;
   display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  animation: pulse 2s ease infinite;
+}
+.hero-scroll::before {
+  content: '';
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #7a756c);
+}
+.hero-year {
+  position: absolute;
+  top: 8vh;
+  right: 6vw;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 14vw, 16rem);
+  color: rgba(200,146,42,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -5px;
 }
 
-.footer-social a {
-  display: inline-block;
-  transition: opacity 0.2s, transform 0.2s;
+/* Intro (Technology) */
+.intro {
+  background: #14161C;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  padding: 7rem 6vw;
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.intro-lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #b8b3a8;
+  line-height: 1.8;
+}
+.intro-lead strong { color: #e8e4dc; font-weight: 600; }
+.intro-callout {
+  background: #1C1F28;
+  border-left: 3px solid #c8922a;
+  padding: 2rem 2.2rem;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #e8e4dc;
+  margin-top: 2.5rem;
+  line-height: 1.65;
 }
 
-.footer-social a:hover {
-  opacity: 0.7;
-  transform: scale(1.05);
+/* Problems (Technology) */
+.problems {
+  background: #060504;
+  padding: 7rem 6vw;
+}
+.problems-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 3rem;
+}
+.problem-card {
+  background: #1C1F28;
+  padding: 3rem;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.problem-card:hover { background: #252836; }
+.problem-card::before {
+  content: attr(data-num);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  color: rgba(200,146,42,0.06);
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.problem-type {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #c8922a;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.problem-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  color: #e8e4dc;
+}
+.problem-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.problem-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  color: #b8b3a8;
+  line-height: 1.55;
+}
+.problem-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #c0392b;
+  font-weight: bold;
+}
+.problem-list li strong { color: #e8e4dc; font-weight: 600; }
+.oee-callout {
+  grid-column: 1 / -1;
+  background: #252836;
+  border: 1px solid rgba(192,57,43,0.3);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.oee-icon { font-size: 3rem; flex-shrink: 0; }
+.oee-text { color: #b8b3a8; font-size: 1.05rem; }
+.oee-text strong { color: #e8e4dc; }
+
+/* Breakthrough (Technology) */
+.breakthrough {
+  background: #14161C;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  border-bottom: 1px solid rgba(200,146,42,0.18);
+  padding: 7rem 6vw;
+}
+.breakthrough-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 6rem;
+  align-items: center;
+}
+.breakthrough-text p { color: #b8b3a8; margin-bottom: 1.3rem; font-size: 1.1rem; }
+.breakthrough-text p strong { color: #e8e4dc; }
+.timeline-dot {
+  width: 12px; height: 12px;
+  background: #c8922a;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.timeline-connector { width: 1px; flex: 1; background: rgba(200,146,42,0.18); min-height: 40px; }
+.timeline-content { padding-bottom: 2.5rem; }
+.timeline-year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #c8922a;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+.timeline-desc { font-size: 1rem; color: #b8b3a8; line-height: 1.55; }
+.timeline-desc strong { color: #e8e4dc; }
+
+/* Benefits (Technology) */
+.benefits {
+  background: #060504;
+  padding: 7rem 6vw;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 3rem;
+}
+.benefit-card {
+  background: #1C1F28;
+  padding: 3rem 3rem 2.5rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card:hover { background: #252836; border-bottom-color: #c8922a; }
+.benefit-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #c8922a;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.benefit-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 1.8rem;
+  color: #e8e4dc;
+}
+.benefit-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.benefit-points li {
+  padding-left: 1.8rem;
+  position: relative;
+  font-size: 1rem;
+  color: #b8b3a8;
+  line-height: 1.55;
+}
+.benefit-points li::before { content: '✓'; position: absolute; left: 0; color: #1A8C5B; font-weight: bold; }
+.benefit-points li strong { color: #e8e4dc; }
+.benefit-biz {
+  background: rgba(200,146,42,0.07);
+  border-left: 2px solid #c8922a;
+  padding: 1rem 1.3rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #b8b3a8;
 }
 
-.footer-social img {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  object-fit: contain;
+/* No items */
+.no-items { background: #14161C; padding: 5rem 6vw; text-align: center; }
+.no-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  max-width: 900px;
+  margin: 3rem auto 0;
 }
+.no-item {
+  background: #1C1F28;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.no-icon { font-size: 2.5rem; line-height: 1; }
+.no-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #c0392b;
+}
+.no-desc { font-size: 0.95rem; color: #7a756c; line-height: 1.5; }
+
+/* Automation */
+.automation {
+  background: #1C1F28;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  padding: 7rem 6vw;
+}
+.automation-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.automation-text p { color: #b8b3a8; margin-bottom: 1.3rem; font-size: 1.1rem; }
+.automation-text p strong { color: #e8e4dc; }
+.innovation-cards { display: flex; flex-direction: column; gap: 2px; }
+.innovation-card {
+  background: #252836;
+  padding: 2rem 2.2rem;
+  border-left: 3px solid #c8922a;
+  transition: background 0.2s ease;
+}
+.innovation-card:hover { background: rgba(200,146,42,0.06); }
+.innovation-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: #e8b84b;
+  margin-bottom: 0.6rem;
+}
+.innovation-desc { font-size: 1rem; color: #b8b3a8; line-height: 1.55; }
+
+/* Comparison (Technology) */
+.comparison {
+  background: #060504;
+  padding: 7rem 4vw;
+}
+.table-wrap { overflow-x: auto; margin-top: 3rem; }
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
+thead tr { background: #1C1F28; }
+thead th {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #c8922a;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(200,146,42,0.18);
+}
+thead th:first-child { width: 20%; }
+thead th:nth-child(2) { width: 35%; }
+thead th:nth-child(3) { width: 45%; }
+tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.2s ease; }
+tbody tr:hover { background: rgba(200,146,42,0.03); }
+td { padding: 1.2rem 1.5rem; font-size: 1rem; vertical-align: top; line-height: 1.55; }
+td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #b8b3a8;
+  letter-spacing: 0.5px;
+}
+.td-bad { color: #8A7A6A; }
+.td-bad .neg { color: #c0392b; font-style: italic; }
+.td-good { color: #e8e4dc; }
+.td-good .pos { color: #1A8C5B; font-weight: 600; }
+
+/* Launch */
+.launch {
+  background: #14161C;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  padding: 7rem 6vw;
+}
+.launch-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 6rem;
+  align-items: start;
+}
+.launch-text p { color: #b8b3a8; margin-bottom: 1.3rem; font-size: 1.1rem; }
+.launch-reasons {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.launch-reasons li { display: flex; gap: 1.2rem; align-items: baseline; font-size: 1.05rem; color: #b8b3a8; }
+.launch-reasons li .ln {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #c8922a;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.launch-cta {
+  background: #1C1F28;
+  border: 1px solid rgba(200,146,42,0.18);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.cta-slogan {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: #e8e4dc;
+}
+.cta-slogan .gold { color: #e8b84b; }
+.cta-divider { width: 100%; height: 1px; background: rgba(200,146,42,0.18); }
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #c8922a;
+  color: #0D0E11;
+  padding: 14px 28px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+}
+.cta-link:hover { background: #e8b84b; }
+.cta-note { font-size: 0.9rem; color: #7a756c; font-style: italic; }
+
+/* Footer banner (Technology) */
+.footer-banner {
+  background: #252836;
+  border-top: 1px solid rgba(200,146,42,0.18);
+  padding: 5rem 6vw;
+  text-align: center;
+}
+.footer-tagline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 3px;
+  color: #e8e4dc;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.footer-tagline .gold { color: #e8b84b; }
 
 /* ============================================================
    СТИЛИ ДЛЯ PATENTS (из patents.html)
@@ -1888,7 +2311,125 @@ p strong { color: #e8e0d0; font-weight: 600; }
   color: rgba(232,224,208,0.5);
 }
 
-/* ---------- АДАПТИВНОСТЬ ДЛЯ PATENTS ---------- */
+/* ---------- ПОДВАЛ ---------- */
+.footer {
+  background: #0f0f0f;
+  border-top: 1px solid rgba(197,160,77,0.15);
+  padding: 40px 40px 24px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+}
+
+.footer-right {
+  flex: 1 1 400px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-company {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #c5a04d;
+  font-weight: 700;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 8px;
+}
+
+.footer-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #706858;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #c5a04d;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: #8a8278;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 16px;
+  text-transform: none !important;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(197,160,77,0.08);
+  gap: 16px;
+}
+
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  color: rgba(112,104,88,0.4);
+  letter-spacing: 0.1em;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: inline-block;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.footer-social a:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.footer-social img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* ---------- АДАПТИВНОСТЬ ---------- */
 @media (max-width: 960px) {
   .stat-strip { grid-template-columns: 1fr 1fr; }
   .stat-item:nth-child(2) { border-right: none; }
@@ -1915,14 +2456,7 @@ p strong { color: #e8e0d0; font-weight: 600; }
   .ps-step:nth-child(2n) { border-right: none; }
   .ps-step:nth-child(1), .ps-step:nth-child(2) { border-bottom: 1px solid rgba(197,160,77,0.20); }
 }
-@media (max-width: 600px) {
-  .prosecution-steps { grid-template-columns: 1fr; }
-  .ps-step { border-right: none; border-bottom: 1px solid rgba(197,160,77,0.20); }
-  .ps-step:last-child { border-bottom: none; }
-  .geo-regions { grid-template-columns: 1fr; }
-}
 
-/* ---------- ОБЩАЯ АДАПТИВНОСТЬ ---------- */
 @media (max-width: 768px) {
   .top-bar {
     padding: 10px 16px;
@@ -1947,6 +2481,21 @@ p strong { color: #e8e0d0; font-weight: 600; }
   .mission-grid { grid-template-columns: 1fr; gap: 36px; }
   .founder-layout { grid-template-columns: 1fr; gap: 36px; }
   .pdf-docs-grid { grid-template-columns: 1fr; }
+  .intro-grid, .breakthrough-inner, .benefits-grid,
+  .automation-inner, .launch-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .problems-grid { grid-template-columns: 1fr; }
+  .no-grid { grid-template-columns: 1fr; }
+  .invest-rounds { grid-template-columns: 1fr; }
+  .invest-hero { padding: 24px; }
+  .invest-tracks { grid-template-columns: 1fr; }
+  .partner-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .prosecution-steps { grid-template-columns: 1fr; }
+  .ps-step { border-right: none; border-bottom: 1px solid rgba(197,160,77,0.20); }
+  .ps-step:last-child { border-bottom: none; }
+  .geo-regions { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
@@ -1960,6 +2509,10 @@ p strong { color: #e8e0d0; font-weight: 600; }
   .stat-strip { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid rgba(197,160,77,0.20); }
   .stat-item:last-child { border-bottom: none; }
+  .hero-stats { gap: 24px; }
+  .stat-n { font-size: 28px; }
+  .invest-round { border-right: none; border-bottom: 1px solid rgba(197,160,77,0.18); }
+  .invest-round:last-child { border-bottom: none; }
 }
 
 /* ---------- ПОДДЕРЖКА ШРИФТОВ ДЛЯ CJK И АРАБСКОГО ---------- */
