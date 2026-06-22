@@ -80,6 +80,7 @@ function getHeaderHtml(activePath) {
         <button class="lang-btn" onclick="setLang('ar','ar')" id="btn-ar">AR</button>
         <button class="lang-btn" onclick="setLang('de','de')" id="btn-de">DE</button>
         <button class="lang-btn" onclick="setLang('fr','fr')" id="btn-fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es','es')" id="btn-es">ES</button>
         <button class="lang-btn" onclick="setLang('ja','ja')" id="btn-ja">JA</button>
         <button class="lang-btn" onclick="setLang('ko','ko')" id="btn-ko">KO</button>
         <button class="lang-btn" onclick="setLang('tr','tr')" id="btn-tr">TR</button>
