@@ -1,5 +1,5 @@
 // public/translator.js
-// Переводчик на 10 языков с гарантированной загрузкой шрифтов
+// Переводчик на 11 языков с гарантированной загрузкой шрифтов
 
 (function() {
   var currentLang = 'en';
@@ -56,7 +56,6 @@
     });
   }
 
-  // ПРИНУДИТЕЛЬНОЕ ПРИМЕНЕНИЕ ШРИФТА
   function applyFontForLanguage(lang) {
     var fontFamily = '';
     if (lang === 'ko') {
@@ -75,13 +74,13 @@
     }
   }
 
-  // ГАРАНТИРОВАННАЯ ЗАГРУЗКА ШРИФТА
   function loadFontForLanguage(lang) {
     var fontMap = {
       'ko': 'Noto+Sans+KR:wght@300;400;500',
       'ja': 'Noto+Sans+JP:wght@300;400;500',
       'zh': 'Noto+Sans+SC:wght@300;400;500',
-      'ar': 'Noto+Sans+Arabic:wght@300;400;500'
+      'ar': 'Noto+Sans+Arabic:wght@300;400;500',
+      'es': 'Noto+Sans+SC:wght@300;400;500'
     };
     if (fontMap[lang] && !document.getElementById('font-' + lang)) {
       var link = document.createElement('link');
@@ -96,8 +95,8 @@
   window.setLang = async function(lang, tl) {
     if (lang === currentLang) return;
 
-    // Обновляем кнопки
-    ['en','ru','uz','zh','ar','de','fr','ja','ko','tr'].forEach(function(l) {
+    // Обновляем кнопки — ДОБАВЛЕН 'es'
+    ['en','ru','uz','zh','ar','de','fr','es','ja','ko','tr'].forEach(function(l) {
       var b = document.getElementById('btn-'+l);
       if (b) b.classList.toggle('active', l===lang);
     });
@@ -107,7 +106,6 @@
 
     var st = document.getElementById('tbar-status');
 
-    // Загружаем шрифт ДО перевода
     loadFontForLanguage(lang);
 
     if (lang === 'en') {
@@ -151,7 +149,7 @@
       applyFontForLanguage(lang);
     } catch(e) {
       if (st) st.textContent = 'Error — check connection';
-      ['en','ru','uz','zh','ar','de','fr','ja','ko','tr'].forEach(function(l){
+      ['en','ru','uz','zh','ar','de','fr','es','ja','ko','tr'].forEach(function(l){
         var b = document.getElementById('btn-'+l);
         if (b) b.classList.toggle('active', l==='en');
       });
