@@ -7,6 +7,7 @@ import patentsContent from './patents.js';
 import contactContent from './contact.js';
 import book1Content from './book-1.js';
 import book2Content from './book-2.js';
+import book3Content from './book-3.js';
 
 // ============================================================
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
@@ -219,6 +220,12 @@ export default {
     // === СТРАНИЦА /book-2 ===
    if (path === '/book-2') {
      return new Response(renderPage(book2Content, '/book-2'), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  });
+}
+   // === СТРАНИЦА /book-3 ===
+  if (path === '/book-3') {
+   return new Response(renderPage(book3Content, '/book-3'), {
     headers: { 'Content-Type': 'text/html; charset=utf-8' }
   });
 }
