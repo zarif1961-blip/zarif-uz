@@ -8,6 +8,7 @@ import contactContent from './contact.js';
 import book1Content from './book-1.js';
 import book2Content from './book-2.js';
 import book3Content from './book-3.js';
+import book4Content from './book-4.js';
 
 // ============================================================
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
@@ -229,6 +230,12 @@ export default {
     headers: { 'Content-Type': 'text/html; charset=utf-8' }
   });
 }
+  // === СТРАНИЦА /book-4 ===
+ if (path === '/book-4') {
+  return new Response(renderPage(book4Content, '/book-4'), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  });
+} 
     
     // === ГЛАВНАЯ СТРАНИЦА ===
     if (path === '/') {
