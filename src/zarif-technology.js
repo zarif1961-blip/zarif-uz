@@ -302,8 +302,8 @@ export default `
       <div class="launch-cta">
         <div class="cta-slogan">The future of the straight stitch is <span class="gold">already here.</span></div>
         <div class="cta-divider"></div>
-        <p class="cta-note">Visit our website to see videos of the ZARIF 2025 prototype sewing machine in action.</p>
-        <a href="https://www.zarif.uz" class="cta-link">↗ Visit zarif.uz</a>
+        <p class="cta-note">Visit our YouTube channel to see videos of the ZARIF 2025 prototype sewing machine in action.</p>
+        <a href="https://youtube.com/@ZarifTadjibaev" class="cta-link">↗ Visit our YouTube channel</a>
       </div>
     </div>
   </section>
