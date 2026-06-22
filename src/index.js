@@ -10,6 +10,7 @@ import book2Content from './book-2.js';
 import book3Content from './book-3.js';
 import book4Content from './book-4.js';
 import book5Content from './book-5.js';
+import book6Content from './book-6.js';
 
 // ============================================================
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ НАВИГАЦИИ С АКТИВНЫМ РАЗДЕЛОМ
@@ -243,6 +244,12 @@ export default {
     headers: { 'Content-Type': 'text/html; charset=utf-8' }
   });
 } 
+  // === СТРАНИЦА /book-6 ===
+ if (path === '/book-6') {
+  return new Response(renderPage(book6Content, '/book-6'), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  });
+}
     
     // === ГЛАВНАЯ СТРАНИЦА ===
     if (path === '/') {
