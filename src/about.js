@@ -202,7 +202,7 @@ export default `
           <span class="invest-nda-item">Patent Documentation</span>
           <span class="invest-nda-item">Prototype Test Reports</span>
         </div>
-        <p style="font-size:13px;color:rgba(232,224,208,0.55);margin:0;">Contact: <strong style="color:#c5a04d;"><a href="mailto:zarif1961@gmail.com">zarif1961@gmail.com</a></strong> · www.zarif.uz</p>
+        <p style="font-size:13px;color:rgba(232,224,208,0.55);margin:0;">Contact: <strong style="color:#c5a04d;"><a href="mailto:info@zarif.uz">info@zarif.uz</a></strong> · www.zarif.uz</p>
       </div>
     </div>
   </section>
