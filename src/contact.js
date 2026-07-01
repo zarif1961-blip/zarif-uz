@@ -179,84 +179,25 @@ export default `
           </div>
         </div>
 
-        <!-- RIGHT: Form panel -->
+        <!-- RIGHT: Brevo Form Panel -->
         <div class="contact-form-panel">
-          <div class="form-eyebrow">Message Form</div>
-          <h3 class="form-title">Write to<br><em>Dr. Tadjibaev</em></h3>
-
-          <form class="form-grid" id="contactForm"
-                action="https://formsubmit.co/zarif1961@gmail.com"
-                method="POST">
-
-            <input type="hidden" name="_subject" value="ZARIF 2025 — New Investor / Partner Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="box">
-            <input type="hidden" name="_autoresponse" value="Thank you for contacting ZARIF 2025. Dr. Tadjibaev will review your message and respond within 2–3 business days. Visit www.zarif.uz and YouTube @ZarifTadjibaev to learn more.">
-
-            <div class="form-group">
-              <label class="form-label" for="fname">First Name *</label>
-              <input class="form-input" type="text" id="fname" name="first_name" placeholder="Your first name" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="lname">Last Name *</label>
-              <input class="form-input" type="text" id="lname" name="last_name" placeholder="Your last name" required>
-            </div>
-
-            <div class="form-group full">
-              <label class="form-label" for="femail">Email Address *</label>
-              <input class="form-input" type="email" id="femail" name="email" placeholder="your@email.com" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="company">Company / Organisation</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Company name">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="country">Country</label>
-              <input class="form-input" type="text" id="country" name="country" placeholder="Country">
-            </div>
-
-            <div class="form-group full">
-              <label class="form-label" for="inquiry">Type of Inquiry *</label>
-              <select class="form-select" id="inquiry" name="inquiry_type" required>
-                <option value="" disabled selected>Select your interest…</option>
-                <option value="Investment — Strategic Partnership">Investment — Strategic Partnership</option>
-                <option value="Investment — Financial">Investment — Financial</option>
-                <option value="Manufacturing — Licensing">Manufacturing — Licensing</option>
-                <option value="Manufacturing — Joint Venture">Manufacturing — Joint Venture</option>
-                <option value="Robotics / AI Integration">Robotics / AI Integration</option>
-                <option value="Technology Demonstration Request">Technology Demonstration Request</option>
-                <option value="Media / Press Inquiry">Media / Press Inquiry</option>
-                <option value="Academic / Research Collaboration">Academic / Research Collaboration</option>
-                <option value="General Information">General Information</option>
-              </select>
-            </div>
-
-            <div class="form-group full">
-              <label class="form-label" for="message">Your Message *</label>
-              <textarea class="form-textarea" id="message" name="message"
-                placeholder="Tell us about your interest in ZARIF 2025 technology, your organisation, and how you envision collaborating…" required></textarea>
-            </div>
-
-            <p class="form-note">
-              * Required fields. Your message is sent directly to Dr. Tadjibaev at <a href="mailto:zarif1961@gmail.com">zarif1961@gmail.com</a>.
-              We respond to every serious inquiry within 2–3 business days.
-            </p>
-
-            <div class="form-submit">
-              <button class="btn-send" type="submit">
-                Send Message <span class="btn-send-arrow">→</span>
-              </button>
-              <p class="form-privacy">By submitting this form you agree that your information will be used solely to respond to your inquiry.</p>
-            </div>
-
-            <div class="form-success" id="formSuccess">
-              <p>✓ &nbsp;Message sent — Dr. Tadjibaev will respond within 2–3 business days.</p>
-            </div>
-
-          </form>
+          <div class="form-eyebrow">Registration Form</div>
+          <h3 class="form-title">Join the<br><em>Revolution</em></h3>
+          
+          <!-- Brevo iframe -->
+          <iframe 
+            width="540" 
+            height="305" 
+            src="https://70d19f9c.sibforms.com/v2/serve/MUIFAFLTt2QF50gLCQjNU1JZNk_JV1LprJAE-fa5abm3ioKstL23jfDQnJS28i68M5uiizDH_wv86gZXpmrULKEvhjpHOu3U2WpfEfkqyje_SEwqIrQ0paWZXlObp8oMX4sGbobQGyRVPVGOnuMMEsIs61qU-MnEmjH1l92i070zmjVr5qKzTcy7ohxbwQ6LFkCGcE3XVJvDOZFCkw==" 
+            frameBorder="0" 
+            scrolling="auto" 
+            allowFullScreen 
+            style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; width: 100%; height: 305px; border: none;">
+          </iframe>
+          
+          <p class="form-note" style="margin-top: 16px;">
+            By submitting this form you agree that your information will be used solely to respond to your inquiry.
+          </p>
         </div>
 
       </div>
