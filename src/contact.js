@@ -152,7 +152,7 @@ export default `
           <div class="contact-items">
             <div class="contact-item">
               <span class="contact-item-label">Email</span>
-              <span class="contact-item-val"><a href="mailto:zarif1961@gmail.com">zarif1961@gmail.com</a></span>
+              <span class="contact-item-val"><a href="mailto:info@zarif.uz">info@zarif.uz</a></span>
             </div>
             <div class="contact-item">
               <span class="contact-item-label">Website</span>
@@ -174,7 +174,7 @@ export default `
 
           <div class="contact-social">
             <a class="contact-social-link" href="https://www.youtube.com/@ZarifTadjibaev" target="_blank" rel="noopener">YouTube ↗</a>
-            <a class="contact-social-link" href="mailto:zarif1961@gmail.com">Email ↗</a>
+            <a class="contact-social-link" href="mailto:info@zarif.uz">Email ↗</a>
             <a class="contact-social-link" href="https://www.zarif.uz" target="_blank" rel="noopener">zarif.uz ↗</a>
           </div>
         </div>
