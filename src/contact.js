@@ -61,7 +61,6 @@ export default `
       <h2 class="section-h">Why ZARIF 2025 —<br><em>Six Compelling Reasons</em></h2>
 
       <div class="reasons-grid">
-
         <div class="reason-card reason-card-wide">
           <div>
             <div class="reason-num">Reason №01</div>
@@ -179,23 +178,23 @@ export default `
           </div>
         </div>
 
-        <!-- RIGHT: Brevo Form Panel -->
+        <!-- RIGHT: Brevo Form Panel - ИСПРАВЛЕННАЯ ВЕРСИЯ -->
         <div class="contact-form-panel">
           <div class="form-eyebrow">Registration Form</div>
           <h3 class="form-title">Join the<br><em>Revolution</em></h3>
           
-          <!-- Brevo iframe -->
-          <iframe 
-            width="540" 
-            height="305" 
-            src="https://70d19f9c.sibforms.com/v2/serve/MUIFAFLTt2QF50gLCQjNU1JZNk_JV1LprJAE-fa5abm3ioKstL23jfDQnJS28i68M5uiizDH_wv86gZXpmrULKEvhjpHOu3U2WpfEfkqyje_SEwqIrQ0paWZXlObp8oMX4sGbobQGyRVPVGOnuMMEsIs61qU-MnEmjH1l92i070zmjVr5qKzTcy7ohxbwQ6LFkCGcE3XVJvDOZFCkw==" 
-            frameBorder="0" 
-            scrolling="auto" 
-            allowFullScreen 
-            style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; width: 100%; height: 305px; border: none;">
-          </iframe>
+          <!-- Обертка для iframe с правильной адаптивностью -->
+          <div class="brevo-iframe-wrapper" style="width: 100%; overflow: hidden; margin: 20px 0;">
+            <iframe 
+              src="https://70d19f9c.sibforms.com/v2/serve/MUIFAFLTt2QF50gLCQjNU1JZNk_JV1LprJAE-fa5abm3ioKstL23jfDQnJS28i68M5uiizDH_wv86gZXpmrULKEvhjpHOu3U2WpfEfkqyje_SEwqIrQ0paWZXlObp8oMX4sGbobQGyRVPVGOnuMMEsIs61qU-MnEmjH1l92i070zmjVr5qKzTcy7ohxbwQ6LFkCGcE3XVJvDOZFCkw==" 
+              frameBorder="0" 
+              scrolling="auto" 
+              allowFullScreen 
+              style="display: block; margin: 0 auto; max-width: 100%; width: 100%; min-width: 280px; height: 420px; border: none; background: transparent;">
+            </iframe>
+          </div>
           
-          <p class="form-note" style="margin-top: 16px;">
+          <p class="form-note" style="margin-top: 16px; font-size: 0.85rem; color: #666; text-align: center;">
             By submitting this form you agree that your information will be used solely to respond to your inquiry.
           </p>
         </div>
