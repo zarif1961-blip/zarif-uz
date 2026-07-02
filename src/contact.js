@@ -183,6 +183,23 @@ export default `
           <div class="form-eyebrow">Registration Form</div>
           <h3 class="form-title">Join the<br><em>Revolution</em></h3>
 
+          <!-- BREVO FORM -->
+          <div id="brevo-form-container" style="width: 100%; margin: 20px 0;">
+            <!-- Форма будет загружена через JavaScript -->
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+              <p style="color: #666; font-size: 14px;">Loading registration form...</p>
+            </div>
+          </div>
+
+          <p class="form-note" style="margin-top: 16px; font-size: 0.85rem; color: #666; text-align: center;">
+            By submitting this form you agree that your information will be used solely to respond to your inquiry.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
           <!-- ==================== BREVO FORM (ПОЛНЫЙ КОД) ==================== -->
           
           <style>
