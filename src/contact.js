@@ -176,14 +176,14 @@ export default `
           </div>
         </div>
 
-        <!-- RIGHT: Brevo Form via iframe -->
+        <!-- RIGHT: Brevo Form via iframe (ОБНОВЛЕННАЯ ВЕРСИЯ) -->
         <div class="contact-form-panel">
           <div class="form-eyebrow">Registration Form</div>
           <h3 class="form-title">Join the<br><em>Revolution</em></h3>
           
           <div style="width: 100%; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); background: #f8f9fa;">
             <iframe 
-              src="https://70d19f9c.sibforms.com/serve/MUIFAFLTt2QF50gLCQjNU1JZNk_JV1LprJAE-fa5abm3ioKstL23jfDQnJS28i68M5uiizDH_wv86gZXpmrULKEvhjpHOu3U2WpfEfkqyje_SEwqIrQ0paWZXlObp8oMX4sGbobQGyRVPVGOnuMMEsIs61qU-MnEmjH1l92i070zmjVr5qKzTcy7ohxbwQ6LFkCGcE3XVJvDOZFCkw==" 
+              src="https://70d19f9c.sibforms.com/serve/MUIFAFLTt2QF50gLCQjNU1JZNk_JV1LprJAE-fa5abm3ioKstL23jfDQnJS28i68M5uiizDH_wv86gZXpmrULKEvhjpHOu3U2WpfEfkqyje_SEwqIrQ0paWZXlObp8oMX4sGbobQGyRVPVGOnuMMEsIs61qU-MnEmjH1l92i070zmjVr5qKzTcy7ohxbwQ6LFkCGcE3XVJvDOZFCkw==?redirect=false" 
               style="width: 100%; height: 650px; border: none; display: block; background: #ffffff;"
               scrolling="auto"
               allowfullscreen>
